@@ -9,14 +9,46 @@ namespace Part_8___Strings
             int incorrect = 0;
             bool done = false;
             string guess;
-            while (!done) ;
-            Console.WriteLine("Welcome to Hangman");
-            Console.WriteLine("Enter a letter to guess");
-            guess = Console.ReadLine();
+            while (!done) 
+            {
+                Console.WriteLine("Welcome to Hangman");
+                Console.WriteLine("Enter a letter to guess");
+                guess = Console.ReadLine();
+                if (incorrect == 0)
+                {
+                    DrawMan(1);
+                }
+                if (incorrect == 1)
+                {
+                    DrawMan(2);
+                }
+                if (incorrect == 2)
+                {
+                    DrawMan(3);
+                }
+                if (incorrect == 3)
+                {
+                    DrawMan(4);
+                }
+                if (incorrect == 4)
+                {
+                    DrawMan(5);
+                }
+                if (incorrect == 5)
+                {
+                    DrawMan(6);
+                }
+                if (incorrect == 6)
+                {
+                    DrawMan(7);
+                }
+                Console.Beep();
+            }
+            
         }
-        public static void DrawMan(int hanging)
+        public static void DrawMan(int hang)
         {
-            if (hanging == 1)
+            if (hang == 1)
             {
                 Console.WriteLine("  +---+");
                 Console.WriteLine("  |   |");
@@ -26,27 +58,27 @@ namespace Part_8___Strings
                 Console.WriteLine("      |");
                 Console.WriteLine("=========");
             }
-            else if (hanging == 2)
-            {
-                Console.WriteLine("  +---+");
-                Console.WriteLine("  |   |");
-                Console.WriteLine("  O   |");
-                Console.WriteLine("      |");
-                Console.WriteLine("      |");
-                Console.WriteLine("      |");
-                Console.WriteLine("=========");
-            }
-            else if (hanging == 3)
+            else if (hang == 2)
             {
                 Console.WriteLine("  +---+");
                 Console.WriteLine("  |   |");
                 Console.WriteLine("  O   |");
+                Console.WriteLine("      |");
+                Console.WriteLine("      |");
+                Console.WriteLine("      |");
+                Console.WriteLine("=========");
+            }
+            else if (hang == 3)
+            {
+                Console.WriteLine("  +---+");
+                Console.WriteLine("  |   |");
+                Console.WriteLine("  O   |");
                 Console.WriteLine("  |   |");
                 Console.WriteLine("      |");
                 Console.WriteLine("      |");
                 Console.WriteLine("=========");
             }
-            else if (hanging == 4)
+            else if (hang == 4)
             {
                 Console.WriteLine("  +---+");
                 Console.WriteLine("  |   |");
@@ -56,7 +88,7 @@ namespace Part_8___Strings
                 Console.WriteLine("      |");
                 Console.WriteLine("=========");
             }
-            else if (hanging == 5)
+            else if (hang == 5)
             {
                 Console.WriteLine("  +---+");
                 Console.WriteLine("  |   |");
@@ -66,7 +98,7 @@ namespace Part_8___Strings
                 Console.WriteLine("      |");
                 Console.WriteLine("=========");
             }
-            else if (hanging == 6)
+            else if (hang == 6)
             {
                 Console.WriteLine("  +---+");
                 Console.WriteLine("  |   |");
@@ -76,7 +108,7 @@ namespace Part_8___Strings
                 Console.WriteLine("      |");
                 Console.WriteLine("=========");
             }
-            else if (hanging == 7)
+            else if (hang == 7)
             {
                 Console.WriteLine("  +---+");
                 Console.WriteLine("  |   |");
@@ -88,7 +120,7 @@ namespace Part_8___Strings
 
         }
           
-            else if (hanging == 8)
+            else if (hang == 8)
             {
                 Console.WriteLine("  +---+");
                 Console.WriteLine("  |   |");
