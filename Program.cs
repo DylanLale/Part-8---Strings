@@ -19,7 +19,8 @@ namespace Part_8___Strings
                 guess = Console.ReadLine().ToUpper();
                 Console.WriteLine();
                 Console.WriteLine("Enter Q to quit");
-                
+                //Correct
+
                 
                 
                 //Incorrect Hangmen
