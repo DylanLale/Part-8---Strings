@@ -9,40 +9,61 @@ namespace Part_8___Strings
             int incorrect = 0;
             bool done = false;
             string guess;
+            string word = "COMPUTER";
+            string displayWord = "--------";
+
             while (!done) 
             {
                 Console.WriteLine("Welcome to Hangman");
                 Console.WriteLine("Enter a letter to guess");
-                guess = Console.ReadLine();
+                guess = Console.ReadLine().ToUpper();
+                Console.WriteLine();
+                Console.WriteLine("Enter Q to quit");
+                
+                
+                
+                //Incorrect Hangmen
                 if (incorrect == 0)
                 {
                     DrawMan(1);
+                    Console.Beep();
                 }
                 if (incorrect == 1)
                 {
                     DrawMan(2);
+                    Console.Beep();
                 }
                 if (incorrect == 2)
                 {
                     DrawMan(3);
+                    Console.Beep();
                 }
                 if (incorrect == 3)
                 {
                     DrawMan(4);
+                    Console.Beep();
                 }
                 if (incorrect == 4)
                 {
                     DrawMan(5);
+                    Console.Beep();
                 }
                 if (incorrect == 5)
                 {
                     DrawMan(6);
+                    Console.Beep();
                 }
                 if (incorrect == 6)
                 {
                     DrawMan(7);
+                    Console.Beep();
+                    done = true;
                 }
-                Console.Beep();
+                //QUIT
+                if (guess == "Q")
+                    done = true;
+                
+                
             }
             
         }
