@@ -11,19 +11,62 @@ namespace Part_8___Strings
             string guess;
             string word = "COMPUTER";
             string displayWord = "--------";
-
+            DrawMan(1);
             while (!done) 
             {
                 Console.WriteLine("Welcome to Hangman");
+                Console.WriteLine();
                 Console.WriteLine("Enter a letter to guess");
+                Console.WriteLine("Enter Q to quit");
                 guess = Console.ReadLine().ToUpper();
                 Console.WriteLine();
-                Console.WriteLine("Enter Q to quit");
+                Console.WriteLine();
                 //Correct
+                if (guess == "C")
+                {
 
+                }
+
+                else if (guess == "O")
+                {
+
+                }
+
+                else if (guess == "M")
+                {
+
+                }
+
+                else if (guess == "P")
+                {
+
+                }
+
+                else if (guess == "U")
+                {
+
+                }
+
+                else if (guess == "T")
+                {
+
+                }
+
+                else if (guess == "E")
+                {
+
+                }
+
+                else if (guess == "R")
+                {
+
+                }
+                else
+                {
+                    incorrect += 1;
+                }
                 
-                
-                //Incorrect Hangmen
+                //Incorrect            
                 if (incorrect == 0)
                 {
                     DrawMan(1);
@@ -125,7 +168,7 @@ namespace Part_8___Strings
                 Console.WriteLine("  +---+");
                 Console.WriteLine("  |   |");
                 Console.WriteLine("  O   |");
-                Console.WriteLine(" /|\\ |");
+                Console.WriteLine(" /|\\  |");
                 Console.WriteLine(" /    |");
                 Console.WriteLine("      |");
                 Console.WriteLine("=========");
@@ -135,8 +178,8 @@ namespace Part_8___Strings
                 Console.WriteLine("  +---+");
                 Console.WriteLine("  |   |");
                 Console.WriteLine("  O   |");
-                Console.WriteLine(" /|\\ |");
-                Console.WriteLine(" / \\ |");
+                Console.WriteLine(" /|\\  |");
+                Console.WriteLine(" / \\  |");
                 Console.WriteLine("      |");
                 Console.WriteLine("=========");
 
