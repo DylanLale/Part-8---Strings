@@ -12,6 +12,8 @@ namespace Part_8___Strings
             string word = "COMPUTER";
             string displayWord = "--------";
             DrawMan(1);
+            Console.WriteLine(displayWord);
+            Console.WriteLine();
             while (!done) 
             {
                 Console.WriteLine("Welcome to Hangman");
@@ -24,42 +26,42 @@ namespace Part_8___Strings
                 //Correct
                 if (guess == "C")
                 {
-
+                    Console.WriteLine(word[0]);
                 }
 
                 else if (guess == "O")
                 {
-
+                    Console.WriteLine(word[1]);
                 }
 
                 else if (guess == "M")
                 {
-
+                    Console.WriteLine(word[2]);
                 }
 
                 else if (guess == "P")
                 {
-
+                    Console.WriteLine(word[3]);
                 }
 
                 else if (guess == "U")
                 {
-
+                    Console.WriteLine(word[4]);
                 }
 
                 else if (guess == "T")
                 {
-
+                    Console.WriteLine(word[5]);
                 }
 
                 else if (guess == "E")
                 {
-
+                    Console.WriteLine(word[6]);
                 }
 
                 else if (guess == "R")
                 {
-
+                    Console.WriteLine(word[7]);
                 }
                 else
                 {
