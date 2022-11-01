@@ -26,17 +26,22 @@ namespace Part_8___Strings
                 //Correct
                 if (guess == "C")
                 {
-                    Console.WriteLine(word[0]);
+                    displayWord.Remove(0,1);
+                    Console.WriteLine(displayWord.Insert(0, "C"));
+
+
                 }
 
                 else if (guess == "O")
                 {
-                    Console.WriteLine(word[1]);
+                    displayWord.Remove(1,2);
+                    Console.WriteLine(displayWord.Insert(1, "O"));
                 }
 
                 else if (guess == "M")
                 {
-                    Console.WriteLine(word[2]);
+                    displayWord.Remove(2,3);
+                    Console.WriteLine(displayWord.Insert(2, "M"));
                 }
 
                 else if (guess == "P")
