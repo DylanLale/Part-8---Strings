@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.Design;
+using System.Text;
 
 namespace Part_8___Strings
 {
@@ -14,6 +15,7 @@ namespace Part_8___Strings
             string guess;
             string word = "COMPUTER";
             string displayWord = "--------";
+            StringBuilder sb1 = new StringBuilder(displayWord);
             DrawMan(1);
             Console.WriteLine(displayWord);
             Console.WriteLine();
