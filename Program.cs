@@ -39,7 +39,7 @@ namespace Part_8___Strings
 
                 }
 
-                else if (guess == "O")
+                if (guess == "O")
                 {                
                     displayWord.Remove(1,2);
                     Console.WriteLine(displayWord.Insert(1, "O"));
