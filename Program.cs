@@ -6,6 +6,9 @@ namespace Part_8___Strings
     {
         static void Main(string[] args)
         {
+            Console.BackgroundColor = ConsoleColor.Red;
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Black;
             int incorrect = 0;
             bool done = false;
             string guess;
@@ -23,9 +26,11 @@ namespace Part_8___Strings
                 guess = Console.ReadLine().ToUpper();
                 Console.WriteLine();
                 Console.WriteLine();
+                Thread.Sleep(2000);
                 //Correct
                 if (guess == "C")
                 {
+                    
                     displayWord.Remove(0,1);
                     Console.WriteLine(displayWord.Insert(0, "C"));
 
@@ -33,7 +38,7 @@ namespace Part_8___Strings
                 }
 
                 else if (guess == "O")
-                {
+                {                
                     displayWord.Remove(1,2);
                     Console.WriteLine(displayWord.Insert(1, "O"));
                 }
@@ -46,27 +51,32 @@ namespace Part_8___Strings
 
                 else if (guess == "P")
                 {
-                    Console.WriteLine(word[3]);
+                    displayWord.Remove(3, 4);
+                    Console.WriteLine(displayWord.Insert(3, "P"));
                 }
 
                 else if (guess == "U")
                 {
-                    Console.WriteLine(word[4]);
+                    displayWord.Remove(4, 5);
+                    Console.WriteLine(displayWord.Insert(4, "U"));
                 }
 
                 else if (guess == "T")
                 {
-                    Console.WriteLine(word[5]);
+                    displayWord.Remove(5, 6);
+                    Console.WriteLine(displayWord.Insert(5, "T"));
                 }
 
                 else if (guess == "E")
                 {
-                    Console.WriteLine(word[6]);
+                    displayWord.Remove(6, 7);
+                    Console.WriteLine(displayWord.Insert(6, "E"));
                 }
 
                 else if (guess == "R")
                 {
-                    Console.WriteLine(word[7]);
+                    displayWord.Remove(7, 8);
+                    Console.WriteLine(displayWord.Insert(7, "R"));
                 }
                 else
                 {
