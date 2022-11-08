@@ -16,6 +16,7 @@ namespace Part_8___Strings
             string word = "COMPUTER";
             string displayWord = "--------";
             StringBuilder sb1 = new StringBuilder(displayWord);
+            IndexOf(word);
             DrawMan(1);
             Console.WriteLine(displayWord);
             Console.WriteLine();
@@ -35,8 +36,6 @@ namespace Part_8___Strings
                     
                     displayWord.Remove(0,1);
                     Console.WriteLine(displayWord.Insert(0, "C"));
-
-
                 }
 
                 if (guess == "O")
@@ -47,37 +46,37 @@ namespace Part_8___Strings
 
                 else if (guess == "M")
                 {
-                    displayWord.Remove(2,3);
+                    displayWord.Remove(1,3);
                     Console.WriteLine(displayWord.Insert(2, "M"));
                 }
 
                 else if (guess == "P")
                 {
-                    displayWord.Remove(3, 4);
+                    displayWord.Remove(1, 4);
                     Console.WriteLine(displayWord.Insert(3, "P"));
                 }
 
                 else if (guess == "U")
                 {
-                    displayWord.Remove(4, 5);
+                    displayWord.Remove(1, 5);
                     Console.WriteLine(displayWord.Insert(4, "U"));
                 }
 
                 else if (guess == "T")
                 {
-                    displayWord.Remove(5, 6);
+                    displayWord.Remove(1, 6);
                     Console.WriteLine(displayWord.Insert(5, "T"));
                 }
 
                 else if (guess == "E")
                 {
-                    displayWord.Remove(6, 7);
+                    displayWord.Remove(1, 7);
                     Console.WriteLine(displayWord.Insert(6, "E"));
                 }
 
                 else if (guess == "R")
                 {
-                    displayWord.Remove(7, 8);
+                    displayWord.Remove(1, 8);
                     Console.WriteLine(displayWord.Insert(7, "R"));
                 }
                 else
