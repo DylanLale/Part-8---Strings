@@ -16,7 +16,7 @@ namespace Part_8___Strings
             string word = "COMPUTER";
             string displayWord = "--------";
             StringBuilder sb1 = new StringBuilder(displayWord);
-            IndexOf(word);
+            
             DrawMan(1);
             Console.WriteLine(displayWord);
             Console.WriteLine();
@@ -40,43 +40,43 @@ namespace Part_8___Strings
 
                 if (guess == "O")
                 {                
-                    displayWord.Remove(1,2);
+                    displayWord.Remove(1,1);
                     Console.WriteLine(displayWord.Insert(1, "O"));
                 }
 
                 else if (guess == "M")
                 {
-                    displayWord.Remove(1,3);
+                    displayWord.Remove(2,1);
                     Console.WriteLine(displayWord.Insert(2, "M"));
                 }
 
                 else if (guess == "P")
                 {
-                    displayWord.Remove(1, 4);
+                    displayWord.Remove(3, 1);
                     Console.WriteLine(displayWord.Insert(3, "P"));
                 }
 
                 else if (guess == "U")
                 {
-                    displayWord.Remove(1, 5);
+                    displayWord.Remove(4, 1);
                     Console.WriteLine(displayWord.Insert(4, "U"));
                 }
 
                 else if (guess == "T")
                 {
-                    displayWord.Remove(1, 6);
+                    displayWord.Remove(5, 1);
                     Console.WriteLine(displayWord.Insert(5, "T"));
                 }
 
                 else if (guess == "E")
                 {
-                    displayWord.Remove(1, 7);
+                    displayWord.Remove(6, 1);
                     Console.WriteLine(displayWord.Insert(6, "E"));
                 }
 
                 else if (guess == "R")
                 {
-                    displayWord.Remove(1, 8);
+                    displayWord.Remove(7, 1);
                     Console.WriteLine(displayWord.Insert(7, "R"));
                 }
                 else
