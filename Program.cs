@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.Design;
+using System.Linq;
 using System.Text;
 
 namespace Part_8___Strings
@@ -26,55 +27,55 @@ namespace Part_8___Strings
                 Console.WriteLine();
                 Console.WriteLine("Enter a letter to guess");
                 Console.WriteLine("Enter Q to quit");
-                guess = Console.ReadLine().ToUpper();
+                Console.ReadLine().ToUpper();
                 Console.WriteLine();
                 Console.WriteLine();
                 Thread.Sleep(2000);
                 //Correct
-                if (guess == "C")
+                if (word.Contains("C"))
                 {
                     
                     displayWord.Remove(0,1);
                     Console.WriteLine(displayWord.Insert(0, "C"));
                 }
 
-                if (guess == "O")
+                if (word.Contains("O"))
                 {                
                     displayWord.Remove(1,1);
                     Console.WriteLine(displayWord.Insert(1, "O"));
                 }
 
-                else if (guess == "M")
+                else if (word.Contains("M"))
                 {
                     displayWord.Remove(2,1);
                     Console.WriteLine(displayWord.Insert(2, "M"));
                 }
 
-                else if (guess == "P")
+                else if (word.Contains("P"))
                 {
                     displayWord.Remove(3, 1);
                     Console.WriteLine(displayWord.Insert(3, "P"));
                 }
 
-                else if (guess == "U")
+                else if (word.Contains("U"))
                 {
                     displayWord.Remove(4, 1);
                     Console.WriteLine(displayWord.Insert(4, "U"));
                 }
 
-                else if (guess == "T")
+                else if (word.Contains("T"))
                 {
                     displayWord.Remove(5, 1);
                     Console.WriteLine(displayWord.Insert(5, "T"));
                 }
 
-                else if (guess == "E")
+                else if (word.Contains("E"))
                 {
                     displayWord.Remove(6, 1);
                     Console.WriteLine(displayWord.Insert(6, "E"));
                 }
 
-                else if (guess == "R")
+                else if (word.Contains("R"))
                 {
                     displayWord.Remove(7, 1);
                     Console.WriteLine(displayWord.Insert(7, "R"));
@@ -129,6 +130,7 @@ namespace Part_8___Strings
             }
             
         }
+        
         public static void DrawMan(int hang)
         {
             if (hang == 1)
