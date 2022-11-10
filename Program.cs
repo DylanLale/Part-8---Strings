@@ -2,193 +2,94 @@
 using System.Linq;
 using System.Text;
 
-namespace Part_8___Strings
+namespace ConsoleApplication6
 {
-    internal class Program
+    class Program
     {
+        static string[] wordBank = { "Pacman", "Captain", "Gamer", "Ralf", "Gold", "Programming" , "tries" , "button" , "games" };
         static void Main(string[] args)
         {
-            Console.BackgroundColor = ConsoleColor.Red;
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Black;
-            int incorrect = 0;
-            bool done = false;
-            string[] listwords = new string[10];
-            listwords[0] = "cow";
-            listwords[1] = "headphones";
-            listwords[2] = "computer";
-            listwords[3] = "canada";
-            listwords[4] = "watermelon";
-            listwords[5] = "icecream";
-            listwords[6] = "photo";
-            listwords[7] = "apples";
-            listwords[8] = "orange";
-            listwords[9] = "melons";
-            Random generator = new Random();
-            int idx = generator.Next(0, 9);
-            StringBuilder mysteryWord = new StringBuilder();
-            StringBuilder mysteryWord = new StringBuilder();
+            
+                Console.WriteLine("Welcome to hangman");
+                Play();
+        }
 
-            (mysteryWord.ToString) = listwords[idx];
-            string guess = new string[mysteryWord.Length];
-            Console.WriteLine("Welcome to Hangman");
-            Console.Write("Please enter your guess: ");
+        static void Play()
+        {
+            Random random = new Random();
 
-            while (!done)
+
+            string wordToGuess = wordBank[random.Next(0, wordBank.Length)];
+            string wordToGuessUppercase = wordToGuess.ToUpper();
+
+            StringBuilder display = new StringBuilder(wordToGuess.Length);
+            for (int i = 0; i < wordToGuess.Length; i++)
+                display.Append('_');
+
+            List<char> correctGuesses = new List<char>();
+            List<char> incorrectGuesses = new List<char>();
+
+            int lives = 5;
+            bool won = false;
+            int lettersRevealed = 0;
+
+            string input;
+            char guess;
+
+            while (!won && lives > 0)
             {
-                for (int p = 0; p < mysteryWord.Length; p++)
-                    guess[p] = '*';
+                Console.Write("Guess a letter: ");
 
-                while (!done)
+                input = Console.ReadLine().ToUpper();
+                guess = input[0];
+
+                if (correctGuesses.Contains(guess))
                 {
-                    char playerGuess = char.Parse(Console.ReadLine());
-                    for (int i = 0; i < mysteryWord.Length; i++)
-                    {
-                        if (playerGuess == mysteryWord[i])
-                            guess[i] = playerGuess;
+                    Console.WriteLine("You've already tried '{0}', and it was correct!", guess);
+                    continue;
+                }
+                else if (incorrectGuesses.Contains(guess))
+                {
+                    Console.WriteLine("You've already tried '{0}', and it was wrong!", guess);
+                    continue;
+                }
 
-                        else if (playerGuess != mysteryWord[i])
+                if (wordToGuessUppercase.Contains(guess))
+                {
+                    correctGuesses.Add(guess);
+
+                    for (int i = 0; i < wordToGuess.Length; i++)
+                    {
+                        if (wordToGuessUppercase[i] == guess)
                         {
-                            incorrect =+ 1;
+                            display[i] = wordToGuess[i];
+                            lettersRevealed++;
                         }
                     }
-                   
-                    Console.WriteLine(guess);
-                    //Incorrect
-                    //
 
-                    /*
-                    if (incorrect == 0)
-                    {
-                        DrawMan(1);
-                        Console.Beep();
-                    }
-                    if (incorrect == 1)
-                    {
-                        DrawMan(2);
-                        Console.Beep();
-                    }
-                    if (incorrect == 2)
-                    {
-                        DrawMan(3);
-                        Console.Beep();
-                    }
-                    if (incorrect == 3)
-                    {
-                        DrawMan(4);
-                        Console.Beep();
-                    }
-                    if (incorrect == 4)
-                    {
-                        DrawMan(5);
-                        Console.Beep();
-                    }
-                    if (incorrect == 5)
-                    {
-                        DrawMan(6);
-                        Console.Beep();
-                    }
-                    if (incorrect == 6)
-                    {
-                        DrawMan(7);
-                        Console.Beep();
-                        done = true;
-                    }
+                    if (lettersRevealed == wordToGuess.Length)
+                        won = true;
+                }
+                else
+                {
+                    incorrectGuesses.Add(guess);
 
-
-
-
+                    Console.WriteLine("Nope, there's no '{0}' in it!", guess);
+                    Console.Beep();
+                    lives--;
                 }
 
+                Console.WriteLine(display.ToString());
             }
 
-          /*public static void DrawMan(int hang)
-            {
-                if (hang == 1)
-                {
-                    Console.WriteLine("  +---+");
-                    Console.WriteLine("  |   |");
-                    Console.WriteLine("      |");
-                    Console.WriteLine("      |");
-                    Console.WriteLine("      |");
-                    Console.WriteLine("      |");
-                    Console.WriteLine("=========");
-                }
-                else if (hang == 2)
-                {
-                    Console.WriteLine("  +---+");
-                    Console.WriteLine("  |   |");
-                    Console.WriteLine("  O   |");
-                    Console.WriteLine("      |");
-                    Console.WriteLine("      |");
-                    Console.WriteLine("      |");
-                    Console.WriteLine("=========");
-                }
-                else if (hang == 3)
-                {
-                    Console.WriteLine("  +---+");
-                    Console.WriteLine("  |   |");
-                    Console.WriteLine("  O   |");
-                    Console.WriteLine("  |   |");
-                    Console.WriteLine("      |");
-                    Console.WriteLine("      |");
-                    Console.WriteLine("=========");
-                }
-                else if (hang == 4)
-                {
-                    Console.WriteLine("  +---+");
-                    Console.WriteLine("  |   |");
-                    Console.WriteLine("  O   |");
-                    Console.WriteLine(" /|   |");
-                    Console.WriteLine("      |");
-                    Console.WriteLine("      |");
-                    Console.WriteLine("=========");
-                }
-                else if (hang == 5)
-                {
-                    Console.WriteLine("  +---+");
-                    Console.WriteLine("  |   |");
-                    Console.WriteLine("  O   |");
-                    Console.WriteLine(" /|\\  |");
-                    Console.WriteLine("      |");
-                    Console.WriteLine("      |");
-                    Console.WriteLine("=========");
-                }
-                else if (hang == 6)
-                {
-                    Console.WriteLine("  +---+");
-                    Console.WriteLine("  |   |");
-                    Console.WriteLine("  O   |");
-                    Console.WriteLine(" /|\\  |");
-                    Console.WriteLine(" /    |");
-                    Console.WriteLine("      |");
-                    Console.WriteLine("=========");
-                }
-                else if (hang == 7)
-                {
-                    Console.WriteLine("  +---+");
-                    Console.WriteLine("  |   |");
-                    Console.WriteLine("  O   |");
-                    Console.WriteLine(" /|\\  |");
-                    Console.WriteLine(" / \\  |");
-                    Console.WriteLine("      |");
-                    Console.WriteLine("=========");
+            if (won)
+                Console.WriteLine("You won!");
+            else
+                Console.WriteLine("You lost! It was '{0}'", wordToGuess);
 
-                }
-
-                else if (hang == 8)
-                {
-                    Console.WriteLine("  +---+");
-                    Console.WriteLine("  |   |");
-                    Console.WriteLine("      |");
-                    Console.WriteLine(" \\O/  |");
-                    Console.WriteLine("  |   |");
-                    Console.WriteLine(" / \\  |");
-                    Console.WriteLine("=========");
-                
-                }
-          */
-                }
-            }        }
-        }    
+            Console.Write("Press ENTER to exit...");
+            Console.ReadLine();
+        }
+    }
 }
+                   
