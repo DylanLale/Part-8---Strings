@@ -13,209 +13,177 @@ namespace Part_8___Strings
             Console.ForegroundColor = ConsoleColor.Black;
             int incorrect = 0;
             bool done = false;
-            string guess;
-            string word = "COMPUTER";
-            string displayWord = "--------";
-            StringBuilder sb1 = new StringBuilder(displayWord);
-            
+            string[] listwords = new string[10];
+            listwords[0] = "cow";
+            listwords[1] = "headphones";
+            listwords[2] = "computer";
+            listwords[3] = "canada";
+            listwords[4] = "watermelon";
+            listwords[5] = "icecream";
+            listwords[6] = "photo";
+            listwords[7] = "apples";
+            listwords[8] = "orange";
+            listwords[9] = "melons";
+            Random generator = new Random();
+            int idx = generator.Next(0, 9);
+
             DrawMan(1);
-            Console.WriteLine(displayWord);
-            Console.WriteLine();
-            while (!done) 
-            {
-                Console.WriteLine("Welcome to Hangman");
-                Console.WriteLine();
-                Console.WriteLine("Enter a letter to guess");
-                Console.WriteLine("Enter Q to quit");
-                Console.ReadLine().ToUpper();
-                Console.WriteLine();
-                Console.WriteLine();
-                Thread.Sleep(2000);
-                //Correct
-                if (word.Contains("C"))
+            string mysteryWord = listwords[idx];
+            char[] guess = new char[mysteryWord.Length];
+            Console.WriteLine("Welcome to Hangman");
+            Console.Write("Please enter your guess: ");
+
+            while (!done)
+            { 
+                for (int p = 0; p < mysteryWord.Length; p++)
+                    guess[p] = '*';
+
+                while (true)
                 {
-                    
-                    displayWord.Remove(0,1);
-                    Console.WriteLine(displayWord.Insert(0, "C"));
+                    char playerGuess = char.Parse(Console.ReadLine());
+                    for (int j = 0; j < mysteryWord.Length; j++)
+                    {
+                        if (playerGuess == mysteryWord[j])
+                            guess[j] = playerGuess;
+
+                        else
+                        {
+                            incorrect += 1;
+                        }
+                    }
+                    Console.WriteLine(guess);
+                    //Incorrect            
+                    if (incorrect == 0)
+                    {
+                        DrawMan(1);
+                        Console.Beep();
+                    }
+                    if (incorrect == 1)
+                    {
+                        DrawMan(2);
+                        Console.Beep();
+                    }
+                    if (incorrect == 2)
+                    {
+                        DrawMan(3);
+                        Console.Beep();
+                    }
+                    if (incorrect == 3)
+                    {
+                        DrawMan(4);
+                        Console.Beep();
+                    }
+                    if (incorrect == 4)
+                    {
+                        DrawMan(5);
+                        Console.Beep();
+                    }
+                    if (incorrect == 5)
+                    {
+                        DrawMan(6);
+                        Console.Beep();
+                    }
+                    if (incorrect == 6)
+                    {
+                        DrawMan(7);
+                        Console.Beep();
+                        done = true;
+                    }
+
+
+
+
                 }
 
-                if (word.Contains("O"))
-                {                
-                    displayWord.Remove(1,1);
-                    Console.WriteLine(displayWord.Insert(1, "O"));
-                }
-
-                else if (word.Contains("M"))
-                {
-                    displayWord.Remove(2,1);
-                    Console.WriteLine(displayWord.Insert(2, "M"));
-                }
-
-                else if (word.Contains("P"))
-                {
-                    displayWord.Remove(3, 1);
-                    Console.WriteLine(displayWord.Insert(3, "P"));
-                }
-
-                else if (word.Contains("U"))
-                {
-                    displayWord.Remove(4, 1);
-                    Console.WriteLine(displayWord.Insert(4, "U"));
-                }
-
-                else if (word.Contains("T"))
-                {
-                    displayWord.Remove(5, 1);
-                    Console.WriteLine(displayWord.Insert(5, "T"));
-                }
-
-                else if (word.Contains("E"))
-                {
-                    displayWord.Remove(6, 1);
-                    Console.WriteLine(displayWord.Insert(6, "E"));
-                }
-
-                else if (word.Contains("R"))
-                {
-                    displayWord.Remove(7, 1);
-                    Console.WriteLine(displayWord.Insert(7, "R"));
-                }
-                else
-                {
-                    incorrect += 1;
-                }
-                
-                //Incorrect            
-                if (incorrect == 0)
-                {
-                    DrawMan(1);
-                    Console.Beep();
-                }
-                if (incorrect == 1)
-                {
-                    DrawMan(2);
-                    Console.Beep();
-                }
-                if (incorrect == 2)
-                {
-                    DrawMan(3);
-                    Console.Beep();
-                }
-                if (incorrect == 3)
-                {
-                    DrawMan(4);
-                    Console.Beep();
-                }
-                if (incorrect == 4)
-                {
-                    DrawMan(5);
-                    Console.Beep();
-                }
-                if (incorrect == 5)
-                {
-                    DrawMan(6);
-                    Console.Beep();
-                }
-                if (incorrect == 6)
-                {
-                    DrawMan(7);
-                    Console.Beep();
-                    done = true;
-                }
-                //QUIT
-                if (guess == "Q")
-                    done = true;
-                
-                
             }
-            
+
+           public static void DrawMan(int hang)
+            {
+                if (hang == 1)
+                {
+                    Console.WriteLine("  +---+");
+                    Console.WriteLine("  |   |");
+                    Console.WriteLine("      |");
+                    Console.WriteLine("      |");
+                    Console.WriteLine("      |");
+                    Console.WriteLine("      |");
+                    Console.WriteLine("=========");
+                }
+                else if (hang == 2)
+                {
+                    Console.WriteLine("  +---+");
+                    Console.WriteLine("  |   |");
+                    Console.WriteLine("  O   |");
+                    Console.WriteLine("      |");
+                    Console.WriteLine("      |");
+                    Console.WriteLine("      |");
+                    Console.WriteLine("=========");
+                }
+                else if (hang == 3)
+                {
+                    Console.WriteLine("  +---+");
+                    Console.WriteLine("  |   |");
+                    Console.WriteLine("  O   |");
+                    Console.WriteLine("  |   |");
+                    Console.WriteLine("      |");
+                    Console.WriteLine("      |");
+                    Console.WriteLine("=========");
+                }
+                else if (hang == 4)
+                {
+                    Console.WriteLine("  +---+");
+                    Console.WriteLine("  |   |");
+                    Console.WriteLine("  O   |");
+                    Console.WriteLine(" /|   |");
+                    Console.WriteLine("      |");
+                    Console.WriteLine("      |");
+                    Console.WriteLine("=========");
+                }
+                else if (hang == 5)
+                {
+                    Console.WriteLine("  +---+");
+                    Console.WriteLine("  |   |");
+                    Console.WriteLine("  O   |");
+                    Console.WriteLine(" /|\\  |");
+                    Console.WriteLine("      |");
+                    Console.WriteLine("      |");
+                    Console.WriteLine("=========");
+                }
+                else if (hang == 6)
+                {
+                    Console.WriteLine("  +---+");
+                    Console.WriteLine("  |   |");
+                    Console.WriteLine("  O   |");
+                    Console.WriteLine(" /|\\  |");
+                    Console.WriteLine(" /    |");
+                    Console.WriteLine("      |");
+                    Console.WriteLine("=========");
+                }
+                else if (hang == 7)
+                {
+                    Console.WriteLine("  +---+");
+                    Console.WriteLine("  |   |");
+                    Console.WriteLine("  O   |");
+                    Console.WriteLine(" /|\\  |");
+                    Console.WriteLine(" / \\  |");
+                    Console.WriteLine("      |");
+                    Console.WriteLine("=========");
+
+                }
+
+                else if (hang == 8)
+                {
+                    Console.WriteLine("  +---+");
+                    Console.WriteLine("  |   |");
+                    Console.WriteLine("      |");
+                    Console.WriteLine(" \\O/  |");
+                    Console.WriteLine("  |   |");
+                    Console.WriteLine(" / \\  |");
+                    Console.WriteLine("=========");
+
+                }
+            }
         }
-        
-        public static void DrawMan(int hang)
-        {
-            if (hang == 1)
-            {
-                Console.WriteLine("  +---+");
-                Console.WriteLine("  |   |");
-                Console.WriteLine("      |");
-                Console.WriteLine("      |");
-                Console.WriteLine("      |");
-                Console.WriteLine("      |");
-                Console.WriteLine("=========");
-            }
-            else if (hang == 2)
-            {
-                Console.WriteLine("  +---+");
-                Console.WriteLine("  |   |");
-                Console.WriteLine("  O   |");
-                Console.WriteLine("      |");
-                Console.WriteLine("      |");
-                Console.WriteLine("      |");
-                Console.WriteLine("=========");
-            }
-            else if (hang == 3)
-            {
-                Console.WriteLine("  +---+");
-                Console.WriteLine("  |   |");
-                Console.WriteLine("  O   |");
-                Console.WriteLine("  |   |");
-                Console.WriteLine("      |");
-                Console.WriteLine("      |");
-                Console.WriteLine("=========");
-            }
-            else if (hang == 4)
-            {
-                Console.WriteLine("  +---+");
-                Console.WriteLine("  |   |");
-                Console.WriteLine("  O   |");
-                Console.WriteLine(" /|   |");
-                Console.WriteLine("      |");
-                Console.WriteLine("      |");
-                Console.WriteLine("=========");
-            }
-            else if (hang == 5)
-            {
-                Console.WriteLine("  +---+");
-                Console.WriteLine("  |   |");
-                Console.WriteLine("  O   |");
-                Console.WriteLine(" /|\\  |");
-                Console.WriteLine("      |");
-                Console.WriteLine("      |");
-                Console.WriteLine("=========");
-            }
-            else if (hang == 6)
-            {
-                Console.WriteLine("  +---+");
-                Console.WriteLine("  |   |");
-                Console.WriteLine("  O   |");
-                Console.WriteLine(" /|\\  |");
-                Console.WriteLine(" /    |");
-                Console.WriteLine("      |");
-                Console.WriteLine("=========");
-            }
-            else if (hang == 7)
-            {
-                Console.WriteLine("  +---+");
-                Console.WriteLine("  |   |");
-                Console.WriteLine("  O   |");
-                Console.WriteLine(" /|\\  |");
-                Console.WriteLine(" / \\  |");
-                Console.WriteLine("      |");
-                Console.WriteLine("=========");
 
-        }
-          
-            else if (hang == 8)
-            {
-                Console.WriteLine("  +---+");
-                Console.WriteLine("  |   |");
-                Console.WriteLine("      |");
-                Console.WriteLine(" \\O/  |");
-                Console.WriteLine("  |   |");
-                Console.WriteLine(" / \\  |");
-                Console.WriteLine("=========");
-
-        }
-}        
     }
 }
