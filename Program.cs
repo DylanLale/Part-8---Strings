@@ -26,33 +26,38 @@ namespace Part_8___Strings
             listwords[9] = "melons";
             Random generator = new Random();
             int idx = generator.Next(0, 9);
+            StringBuilder mysteryWord = new StringBuilder();
+            StringBuilder mysteryWord = new StringBuilder();
 
-            DrawMan(1);
-            string mysteryWord = listwords[idx];
-            char[] guess = new char[mysteryWord.Length];
+            (mysteryWord.ToString) = listwords[idx];
+            string guess = new string[mysteryWord.Length];
             Console.WriteLine("Welcome to Hangman");
             Console.Write("Please enter your guess: ");
 
             while (!done)
-            { 
+            {
                 for (int p = 0; p < mysteryWord.Length; p++)
                     guess[p] = '*';
 
-                while (true)
+                while (!done)
                 {
                     char playerGuess = char.Parse(Console.ReadLine());
-                    for (int j = 0; j < mysteryWord.Length; j++)
+                    for (int i = 0; i < mysteryWord.Length; i++)
                     {
-                        if (playerGuess == mysteryWord[j])
-                            guess[j] = playerGuess;
+                        if (playerGuess == mysteryWord[i])
+                            guess[i] = playerGuess;
 
-                        else
+                        else if (playerGuess != mysteryWord[i])
                         {
-                            incorrect += 1;
+                            incorrect =+ 1;
                         }
                     }
+                   
                     Console.WriteLine(guess);
-                    //Incorrect            
+                    //Incorrect
+                    //
+
+                    /*
                     if (incorrect == 0)
                     {
                         DrawMan(1);
@@ -97,7 +102,7 @@ namespace Part_8___Strings
 
             }
 
-           public static void DrawMan(int hang)
+          /*public static void DrawMan(int hang)
             {
                 if (hang == 1)
                 {
@@ -180,10 +185,10 @@ namespace Part_8___Strings
                     Console.WriteLine("  |   |");
                     Console.WriteLine(" / \\  |");
                     Console.WriteLine("=========");
-
+                
                 }
-            }
-        }
-
-    }
+          */
+                }
+            }        }
+        }    
 }
