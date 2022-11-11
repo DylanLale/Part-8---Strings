@@ -13,8 +13,91 @@ namespace ConsoleApplication6
                 Console.WriteLine("Welcome to hangman");
                 Play();
         }
+        public static void DrawMan(int hang)
+        {
+            if (hang == 1)
+            {
+                Console.WriteLine("  +---+");
+                Console.WriteLine("  |   |");
+                Console.WriteLine("      |");
+                Console.WriteLine("      |");
+                Console.WriteLine("      |");
+                Console.WriteLine("      |");
+                Console.WriteLine("=========");
+            }
+            else if (hang == 2)
+            {
+                Console.WriteLine("  +---+");
+                Console.WriteLine("  |   |");
+                Console.WriteLine("  O   |");
+                Console.WriteLine("      |");
+                Console.WriteLine("      |");
+                Console.WriteLine("      |");
+                Console.WriteLine("=========");
+            }
+            else if (hang == 3)
+            {
+                Console.WriteLine("  +---+");
+                Console.WriteLine("  |   |");
+                Console.WriteLine("  O   |");
+                Console.WriteLine("  |   |");
+                Console.WriteLine("      |");
+                Console.WriteLine("      |");
+                Console.WriteLine("=========");
+            }
+            else if (hang == 4)
+            {
+                Console.WriteLine("  +---+");
+                Console.WriteLine("  |   |");
+                Console.WriteLine("  O   |");
+                Console.WriteLine(" /|   |");
+                Console.WriteLine("      |");
+                Console.WriteLine("      |");
+                Console.WriteLine("=========");
+            }
+            else if (hang == 5)
+            {
+                Console.WriteLine("  +---+");
+                Console.WriteLine("  |   |");
+                Console.WriteLine("  O   |");
+                Console.WriteLine(" /|\\  |");
+                Console.WriteLine("      |");
+                Console.WriteLine("      |");
+                Console.WriteLine("=========");
+            }
+            else if (hang == 6)
+            {
+                Console.WriteLine("  +---+");
+                Console.WriteLine("  |   |");
+                Console.WriteLine("  O   |");
+                Console.WriteLine(" /|\\  |");
+                Console.WriteLine(" /    |");
+                Console.WriteLine("      |");
+                Console.WriteLine("=========");
+            }
+            else if (hang == 7)
+            {
+                Console.WriteLine("  +---+");
+                Console.WriteLine("  |   |");
+                Console.WriteLine("  O   |");
+                Console.WriteLine(" /|\\  |");
+                Console.WriteLine(" / \\  |");
+                Console.WriteLine("      |");
+                Console.WriteLine("=========");
+            }
 
-        static void Play()
+            else if (hang == 8)
+            {
+                Console.WriteLine("  +---+");
+                Console.WriteLine("  |   |");
+                Console.WriteLine("      |");
+                Console.WriteLine(" \\O/  |");
+                Console.WriteLine("  |   |");
+                Console.WriteLine(" / \\  |");
+                Console.WriteLine("=========");
+
+
+                static void Play()
         {
             Random random = new Random();
 
@@ -91,5 +174,6 @@ namespace ConsoleApplication6
             Console.ReadLine();
         }
     }
+    
 }
                    
